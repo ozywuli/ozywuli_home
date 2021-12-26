@@ -1,0 +1,7 @@
+<ul class="owl-nav" role="menu">
+	{{#foreach navigation}}
+		<li class="owl-nav-item {{link_class for=(url) class=(concat "nav-" slug)}}" role="menuitem">
+			<a href="{{url absolute="true"}}" class="owl-nav-link">{{label}}</a>
+		</li>
+	{{/foreach}}
+</ul>

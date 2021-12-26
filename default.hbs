@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<html
+	lang="{{@site.locale}}"{{#match @custom.color_scheme "Dark"}}
+	class="dark-mode"{{/match}}{{#match @custom.color_scheme "Auto"}}
+	class="auto-color"{{/match}}
+>
+<head>
+	{{!-- Basic meta - advanced meta is output with {ghost_head} below --}}
+	<title>{{meta_title}}</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<style>
+		:root {
+			{{#if @custom.header_button_background}}
+			--button-bg-color: {{@custom.header_button_background}};
+			{{/if}}
+			--button-text-color: {{#match @custom.header_button_text_color "Light"}}#fff{{else}}var(--color-darkgrey){{/match}};
+		}
+	</style>
+
+	{{!-- Theme assets - use the {asset} helper to reference styles & scripts,
+	this will take care of caching and cache-busting automatically --}}
+	<link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
+
+	{{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings,
+	it should always be the last tag before the closing head tag --}}
+	{{ghost_head}}
+</head>
+<body class="{{body_class}}{{#match @custom.title_font "=" "Elegant serif"}} has-serif-title{{/match}}{{#match @custom.body_font "=" "Modern sans-serif"}} has-sans-body{{/match}}">
+
+<div class="viewport">
+	{{> "header"}}
+	<header class="owl-header" role="navigation">
+		<nav class="owl-header-nav">
+			<div class="owl-header-brand">
+				<a href="/">OZY WU-LI</a>
+			</div>
+			<div class="owl-header-menu">
+				{{navigation}}
+			</div>
+		</nav>
+	</header>
+
+	<div class="owl-content">
+		{{!-- All other templates get inserted here, index.hbs, post.hbs, etc --}}
+		{{{body}}}
+	</div>
+
+	{{!-- The global footer at the very bottom of the screen --}}
+	<footer class="site-footer">
+		<section class="copyright"><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}</section>
+		<nav class="site-footer-nav">
+			{{navigation type="secondary"}}
+		</nav>
+	</footer>
+</div>
+
+{{!-- Ghost outputs required functional scripts with this tag - it should always be the last thing before the closing body tag --}}
+{{ghost_foot}}
+
+</body>
+</html>
