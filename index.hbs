@@ -1,7 +1,15 @@
 {{!< default}}
 
-<p>👋 How's it going? I'm Ozy Wu-Li (<a href="https://www.mdbg.net/chindict/chindict.php?page=worddict&amp;wdrst=0&amp;wdqb=%E5%90%B4%E5%8D%8E%E5%9C%A3" target="_blank">吴华圣</a>)</p>
-<p>Interaction web developer/designer</p>
-<p>Helping to make the web a cooler, better place</p>
+<header class="intro-header owl-canvas">
+	<h2>How's it going? 👋 I'm Ozy Wu-Li (<a href="https://www.mdbg.net/chindict/chindict.php?page=worddict&amp;wdrst=0&amp;wdqb=%E5%90%B4%E5%8D%8E%E5%9C%A3" target="_blank" class="ch">吴华圣</a>)</h2>
+	<p>I share content related to design, technology, photography, and pretty much everything and anything that interests me. 🤘</p>
+</header>
 
-<p>whoa sdsd</p>
+
+<div class="site-main">
+	<div class="post-feed owl-canvas">
+		{{#foreach posts}}
+			{{> "post-card"}}
+		{{/foreach}}
+	</div>
+</div>

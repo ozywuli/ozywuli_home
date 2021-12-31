@@ -1,0 +1,20 @@
+{{!< default}}
+
+{{#post}}
+{{!-- Everything inside the #post block pulls data from the post --}}
+
+<main class="site-main">
+	<article class="article">
+		<header class="article-header owl-canvas">
+			<div class="byline-meta">
+				<time class="byline-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY-MM-DD"}}</time>
+			</div>
+			<h1 class="article-title">{{title}}</h1>
+		</header>
+		<section class="article-content owl-canvas">
+			{{content}}
+		</section>
+	</article>
+</main>
+
+{{/post}}

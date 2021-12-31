@@ -1,11 +1,55 @@
 @import "global.css";
 
+:root {
+
+    /* Colours */
+    --color-green: #a4d037;
+    --color-yellow: #fecd35;
+    --color-red: #f05230;
+    --color-darkgrey: #15171A;
+    --color-midgrey: #738a94;
+    --color-lightgrey: #c5d2d9;
+    --color-wash: #e5eff5;
+    --color-darkmode: #151719;
+
+    /*
+    An accent color is also set by Ghost itself in
+    Ghost Admin > Settings > Brand
+
+    --ghost-accent-color: {value};
+
+    You can use this variale throughout your styles
+     */
+
+    /* Fonts */
+    --font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    --font-serif: Georgia, Times, serif;
+    --font-mono: Menlo, Courier, monospace;
+
+}
+
+.viewport {
+	background: #0E0E0E;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
 .owl-header {
 	position: fixed;
 	top: 0;
 	width: 100%;
-	height: 4rem;
-	padding: 0 1.5rem;
+	height: 3rem;
+	padding: 0 1rem;
+	background: #000;
+	border-bottom: 1px solid #2a2a2a;
+}
+
+.owl-header-brand-link {
+	text-decoration: none;
+	color: #CBA135;
+	font-weight: bold;
+	text-transform: uppercase;
 }
 
 .owl-header-nav {
@@ -15,29 +59,211 @@
 	height: 100%;
 }
 
+.owl-header-right {
+	display: flex;
+	align-items: center;
+}
+
 .owl-nav {
 	display: inline-flex;
 	align-items: center;
 }
 
 .owl-nav-item {
-	margin-right: 1rem;
+	margin-left: 1rem;
 }
 
-.owl-content {
-	margin-top: 4rem;
-	padding-bottom: 4rem;
+.site-content {
+	flex: 1;
+	margin-top: 3rem;
+	padding-bottom: 3rem;
 }
 
 .owl-content:before {
 	content: " ";
 	display: block;
-	height: calc(4rem + 1.5rem);
-	margin-top: calc(-4rem - 1.5rem);
+	height: calc(3rem + 1.5rem);
+	margin-top: calc(-3rem - 1.5rem);
 	pointer-events: none;
 	visibility: hidden;
 }
 
 .owl-nav-link {
 	text-decoration: none;
+	color: #FFF;
+}
+
+.owl-social {
+	display: flex;
+	align-items: center;
+}
+
+.owl-social svg {
+	display: block;
+	width: 1rem;
+	height: 1rem;
+	fill: #FFF;
+}
+
+.owl-social-link {
+	margin-left: 1rem;
+}
+
+.site-footer {
+	position: relative;
+	width: 100%;
+	border-top: 1px solid #2a2a2a;
+	padding: 1rem;
+	background: #000;
+	font-size: 0.75rem;
+}
+
+.copyright-link {
+	color: #CBA135;
+	text-decoration: none;
+}
+
+.owl-canvas {
+	display: grid;
+	grid-template-columns: [full-start] minmax(4vmin,auto) [wide-start] minmax(auto,240px) [main-start] min(720px,calc(100% - 8vw)) [main-end] minmax(auto,240px) [wide-end] minmax(4vmin,auto) [full-end];
+}
+
+.owl-canvas > * {
+	grid-column: main-start/main-end;
+}
+
+.intro-header {
+	background: #000;
+	padding: 4vmin 0;
+	line-height: 1.5;
+}
+
+.intro-header h2 {
+	font-size: 2rem;
+
+}
+
+.intro-header p {
+	font-size: 1.5rem;
+	color: #868686;
+}
+
+.ch {
+	font-family: Tahoma, Helvetica, Arial, "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", sans-serif;
+	color: #CBA135;
+}
+
+.post-feed {
+	padding: 4vmin 0;
+}
+
+.post-card {
+	border-bottom: 1px solid #2a2a2a;
+	line-height: 1.5;
+}
+
+.post-card-link {
+	display: block;
+	padding: 1rem 0;
+	color: #F8F8F8;
+	text-decoration: none;
+}
+
+.post-card-link:hover {
+	color: #CBA135;
+}
+
+.post-card-title {
+	font-size: 1.25rem;
+}
+
+.post-card-date {
+	font-size: 1rem;
+	color: #868686;
+}
+
+.kg-image-card img {
+	width: 100%;
+	height: auto;
+}
+
+.article {
+	padding: 6vmin 0;
+}
+
+.article-content pre {
+	overflow: auto;
+	padding: 16px 20px;
+	color: var(--color-wash);
+	font-size: 1rem;
+	line-height: 1.5em;
+	background: var(--color-darkgrey);
+	border-radius: 5px;
+	box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
+	margin-bottom: 1.5rem;
+}
+
+.article-header {
+	margin-bottom: 1.5rem;
+}
+
+.article-title {
+	font-size: 2rem;
+	font-weight: bold;
+	line-height: 1.5;
+}
+
+.byline-meta {
+	color: #868686;
+	line-height: 1.25;
+}
+
+.article-content h2 {
+	font-size: 1.25rem;
+	line-height: 1.25;
+	margin-bottom: 1rem;
+	font-weight: bold;
+}
+
+.article-content p {
+	margin-bottom: 1.5rem;
+	line-height: 1.5;
+}
+
+.article-content .kg-card {
+	margin-bottom: 1.5rem;
+}
+
+.article-content hr {
+	width: 100%;
+	border-color: #2a2a2a;
+	margin: 0 0 1.5rem 0;
+}
+
+.article-content a {
+	color: #CBA135;
+}
+
+.article-content figcaption {
+	color: #868686;
+	line-height: 1.5;
+}
+
+.article-content ul
+.article-content ol {
+	margin-bottom: 1.5rem;
+}
+
+.article-content li {
+	list-style-position: inside;
+	line-height: 1.5;
+	margin-bottom: 0.5rem;
+}
+
+.article-content ol li {
+	list-style-type: number;
+}
+
+.article-content ul li {
+	list-style-type: square;
 }

@@ -1,0 +1,20 @@
+{{!< default}}
+
+{{!-- The tag above means: insert everything in this file
+into the {body} tag of the default.hbs template --}}
+
+
+{{#post}}
+{{!-- Everything inside the #post block pulls data from the page --}}
+
+<main class="site-main">
+	<article class="article">
+		<header class="article-header owl-canvas">
+			<h1 class="article-title">{{title}}</h1>
+		</header>
+		<section class="article-content owl-canvas">
+			{{content}}
+		</section>
+	</article>
+</main>
+{{/post}}

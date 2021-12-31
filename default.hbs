@@ -8,6 +8,7 @@
 <head>
 	{{!-- Basic meta - advanced meta is output with {ghost_head} below --}}
 	<title>{{meta_title}}</title>
+
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="HandheldFriendly" content="True" />
@@ -33,34 +34,49 @@
 <body class="{{body_class}}{{#match @custom.title_font "=" "Elegant serif"}} has-serif-title{{/match}}{{#match @custom.body_font "=" "Modern sans-serif"}} has-sans-body{{/match}}">
 
 <div class="viewport">
-	{{> "header"}}
 	<header class="owl-header" role="navigation">
 		<nav class="owl-header-nav">
 			<div class="owl-header-brand">
-				<a href="/">OZY WU-LI</a>
+				<a href="/" class="owl-header-brand-link">OZY WU-LI</a>
 			</div>
-			<div class="owl-header-menu">
-				{{navigation}}
+			<div class="owl-header-right">
+				<div class="owl-header-menu">
+					{{navigation}}
+				</div>
+				<div class="owl-header-actions">
+					<div class="owl-social">
+						{{#if @site.twitter}}
+							<a class="owl-social-link owl-social-twitter" href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
+						{{/if}}
+						<a class="owl-social-link owl-social-github" href="https://github.com/ozywuli" title="GitHub" target="_blank" rel="noopener">{{> "icons/github"}}</a>
+					</div>
+				</div>
 			</div>
 		</nav>
 	</header>
 
-	<div class="owl-content">
+	<div class="site-content">
 		{{!-- All other templates get inserted here, index.hbs, post.hbs, etc --}}
 		{{{body}}}
 	</div>
 
 	{{!-- The global footer at the very bottom of the screen --}}
 	<footer class="site-footer">
-		<section class="copyright"><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}</section>
-		<nav class="site-footer-nav">
-			{{navigation type="secondary"}}
-		</nav>
+		<section class="copyright"><a href="{{@site.url}}" class="copyright-link">{{@site.title}}</a> &copy; 2012 - {{date format="YYYY"}}</section>
 	</footer>
 </div>
 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46611617-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
 {{!-- Ghost outputs required functional scripts with this tag - it should always be the last thing before the closing body tag --}}
 {{ghost_foot}}
-
 </body>
 </html>
